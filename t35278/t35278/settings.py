@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/dev/ref/settings/
 """
 
 from pathlib import Path
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -126,9 +127,14 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 # restricts languages that are available for translation
 from django.utils.translation import gettext_lazy as _
-
+LANGUAGE_CODE = "en"
 LANGUAGES = (
     ('en', _("English")),
     ('fr', _("French")),
     ('ar', _("Arabic")),
 )
+
+LOCALE_PATHS = (
+    os.path.join(BASE_DIR, "locale/"),
+    )
+    
